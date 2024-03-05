@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Belleza&display=swap");
+
+.container {
+	margin-top: 1rem;
+	perspective: 1500px;
+}
+
+.card {
+	position: relative;
+	width: 350px;
+	height: 450px;
+	background: grey;
+	border-radius: 10px;
+	transform-style: preserve-3d;
+	transition: transform 1s cubic-bezier(0.33, -0.05, 0.62, 1.4);
+	animation: flip-once 3s cubic-bezier(0.33, -0.05, 0.62, 1.4) 1;
+}
+@keyframes flip-once {
+	40%,
+	60% {
+		transform: rotateY(180deg);
+	}
+}
+.container:hover .card {
+	cursor: pointer;
+	transform: rotateY(180deg);
+}
+
+.front,
+.back {
+	display: flex;
+	flex-direction: column;
+	height: 450px;
+	width: 350px;
+	padding: 3rem 2rem 2rem;
+	border: 4px solid #000;
+	border-radius: 10px;
+	box-shadow: 5px 5px 40px -5px rgba(0 0 0 / 1);
+	transform-style: preserve-3d;
+}
+.front .background,
+.back .background {
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	height: 98%;
+	width: 98%;
+	border-radius: 5px;
+	transform-style: preserve-3d;
+	transform: translateZ(30px);
+}
+.front .background {
+	background: blue;
+}
+.back .background {
+	background: green;
+}
+.front {
+	background: dodgerblue;
+}
+.back {
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: lightgreen;
+}
+
+img {
+	max-width: 300px;
+	margin: 2rem 0;
+}
+
+h1 {
+	font-size: 2.5rem;
+	line-height: 1;
+	padding-bottom: 20px;
+	border-bottom: 3px solid white;
+}
+p {
+	font-size: 1.35rem;
+	line-height: 1.5;
+	margin: 2rem 0;
+}
+h1,
+p,
+img {
+	transform: translateZ(70px);
+}
+.front p {
+	translate: 0 -2rem;
+}
+
+/* body styling and reset */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body {
+	position: relative;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background: rgb(173, 14, 14);
+	font-family: "Belleza", sans-serif;
+	font-size: 18pt;
+	text-align: center;
+	color: #fff;
+}
+.link {
+	font-size: 1rem;
+}
+.link a {
+	color: cyan;
+	text-decoration: none;
+}
+.link a:hover {
+	color: white;
+	text-decoration: underline;
+}
